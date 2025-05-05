@@ -18,9 +18,8 @@ const FarmersPage = () => {
   }, []);
 
   return (
-    <div className=" p-6 bg-gray-50">
+    <div className=" p-6 min-h-[100vh] bg-gray-50">
       <h1 className="text-2xl font-bold text-center mb-6">Farmers Overview</h1>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {farmers.map((farmer, index) => (
           <div
