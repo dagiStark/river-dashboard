@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "overview": "አጠቃላይ እይታ",
+    "charts": "ግራፍ",
+    "farmers": "ተጠቃሚዎች"
+  },
+  "crops_title": "የሰብል አየነት",
+  "crops_water": "የውሃ መጠን",
+  "crops": {
+    "teff": "ጤፍ",
+    "maize": "በቆሎ",
+    "sorghum": "ማሽላ",
+    "wheat": "ስንዴ",
+    "barley": "ገብስ",
+    "oats": "አጃ",
+    "rice": "ሩዝ",
+    "potato": "ድንች",
+    "sweet_potato": "ስኳር ድንች",
+    "yam": "ያም",
+    "cassava": "ካሳቫ",
+    "onion": "ሽንኩርት",
+    "tomato": "ቲማቲም",
+    "cabbage": "ጎመን"
+  },
+  "calc": "ስሌት",
+  "calc_title": "የመሬቶን ስፋት መጠን ማስገባትዎን ያረጋግጡ",
+  "name": "ስም",
+  "crop_select": "የሰብል አይነት",
+  "farm_land": " የእርሻ ስፋት",
+  "calc_btn": "አስላ",
+  "dashboard": "ዳሽቦርድ",
+  "welcome": "እንኳን በደህና መጡ",
+  "welcome_msg": " የአይኦቲ ስርዓት ለመከታተል፣ መስኖን ለማመቻቸት እና ዘላቂ የውሃ አያያዝን ለማረጋገጥ።",
+  "search": "ፈልግ",
+  "nav_list": "አሰሳ",
+  "cards": {
+    "riverFlowTitle": "የወንዙ ፍሰት",
+    "riverLevelTitle": "የወንዙ ጥልቀት",
+    "rainDropTitle": "የዝናብ መጠን",
+    "literPerMinute": "ሊትር በ ደቂቃ",
+    "meter": "ሜትር",
+    "mm": "ሚሊ ሜትር"
+  },
+  "analysis": " ካለፈዉ ወር",
+  "right_dist": "የዉሃ አከፋፈል"
+}

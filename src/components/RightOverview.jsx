@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { fetchAndDecodeFromThingSpeak } from "../utils";
 import { generateRelatedColors } from "../constants";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   ArcElement,
@@ -56,6 +57,7 @@ const customPieLabel = {
 };
 
 const CircularChart = () => {
+  const { t } = useTranslation();
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
@@ -88,7 +90,7 @@ const CircularChart = () => {
     plugins: {
       title: {
         display: true,
-        text: "Water Distribution",
+        text: t("right_dist"),
         font: { size: 16, weight: "bold" },
         padding: { top: 10, bottom: 10 },
       },

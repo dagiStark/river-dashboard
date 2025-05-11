@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "overview": "Overview",
+    "charts": "Charts",
+    "farmers": "Farmers"
+  },
+  "crops_title": "Crop Types",
+  "crops_water": "Water Amount",
+  "crops": {
+    "teff": "Teff",
+    "maize": "Maize",
+    "sorghum": "Sorghum",
+    "wheat": "Wheat",
+    "barley": "Barley",
+    "oats": "Oats",
+    "rice": "Rice",
+    "potato": "Potato",
+    "sweet_potato": "Sweet Potato",
+    "yam": "Yam",
+    "cassava": "Cassava",
+    "onion": "Onion",
+    "tomato": "Tomato",
+    "cabbage": "Cabbage"
+  },
+  "calc": "Calculation",
+  "calc_title": "Make sure to add your land size",
+  "name": "Name",
+  "crop_select": "Crop Type",
+  "farm_land": "Land Size",
+  "calc_btn": "Calculate",
+  "dashboard": "Dashboard",
+  "welcome": "Welcome",
+  "welcome_msg":"An IOT based water distribution system for farmers",
+  "search":"Search",
+  "nav_list": "Navigate",
+  "cards": {
+    "riverFlowTitle": "River Flow",
+    "riverLevelTitle": "River Level",
+    "rainDropTitle": "Rain Fall",
+    "literPerMinute": "L/m",
+    "meter": "m",
+    "mm": "mm"
+  },
+  "analysis": "from last month",
+  "right_dist":"Water Distribution"
+}

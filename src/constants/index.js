@@ -2,160 +2,116 @@ import { Logs, ChartArea, LandPlot } from "lucide-react";
 
 export const navItems = [
   {
-    name: "አጠቃላይ እይታ",
+    name: "overview",
     path: "/overview",
     icon: Logs,
   },
   {
-    name: "ግራፍ",
+    name: "charts",
     path: "/charts",
     icon: ChartArea,
   },
   {
-    name: "ተጠቃሚዎች",
+    name: "farmers",
     path: "/farmers",
     icon: LandPlot,
   },
 ];
 
-export const dummyData = [
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-  { name: "Toyota", status: "Active", lastUpdate: "2023-01-01" },
-];
-
-export const fakeData = [
-  {
-    id: "1",
-    vehicleName: "Toyota",
-    status: "Active",
-    lastUpdate: "2023-01-01",
-  },
-  {
-    id: "2",
-    vehicleName: "Toyota",
-    status: "Active",
-    lastUpdate: "2023-01-01",
-  },
-  {
-    id: "3",
-    vehicleName: "Toyota",
-    status: "Active",
-    lastUpdate: "2023-01-01",
-  },
-  {
-    id: "4",
-    vehicleName: "Toyota",
-    status: "Active",
-    lastUpdate: "2023-01-01",
-  },
-];
-
-export const usStates = [
-  { value: "received", label: "Received" },
-  { value: "maintaining", label: "Maintaining" },
-  { value: "delivered", label: "Delivered" },
-  { value: "trashed", label: "Trashed" },
-];
-
 export const crops = [
   {
-    name: "ጤፍ",
+    name: "crops.teff",
     amount: 3500,
     season: 75,
     img: "/crops/teff.jpeg",
     water: "3000-4000",
   },
   {
-    name: "በቆሎ",
+    name: "crops.maize",
     amount: 6500,
     season: 105,
     img: "/crops/maize.jpeg",
     water: "5000-8000",
   },
   {
-    name: "ማሽላ",
+    name: "crops.sorghum",
     amount: 5500,
     season: 105,
     img: "/crops/sorghum.jpeg",
     water: "4500-6500",
   },
   {
-    name: "ስንዴ",
+    name: "crops.wheat",
     amount: 5750,
     season: 135,
     img: "/crops/wheat.jpeg",
     water: "4500-7000",
   },
   {
-    name: "ገብስ",
+    name: "crops.barley",
     amount: 5000,
     season: 120,
     img: "/crops/barley.jpeg",
     water: "4000-6000",
   },
   {
-    name: "አጃ",
+    name: "crops.oats",
     amount: 6000,
     season: 110,
     img: "/crops/oats.jpeg",
     water: "5000-7000",
   },
   {
-    name: "ሩዝ",
+    name: "crops.rice",
     amount: 12500,
     season: 135,
     img: "/crops/rice.jpeg",
     water: "10000-15000",
   },
   {
-    name: "ድንች",
+    name: "crops.potato",
     amount: 6000,
     season: 105,
     img: "/crops/potato.jpeg",
     water: "5000-7000",
   },
   {
-    name: "ስኳር ድንች",
+    name: "crops.sweet_potato",
     amount: 5000,
     season: 135,
     img: "/crops/sweet_potato.jpeg",
     water: "4000-6000",
   },
   {
-    name: "ያም",
+    name: "crops.yam",
     amount: 7000,
     season: 210,
     img: "/crops/yam.jpeg",
     water: "6000-8000",
   },
   {
-    name: "ካሳቫ ",
+    name: "crops.cassava",
     amount: 4000,
     season: 300,
     img: "/crops/cassava.jpeg",
     water: "3000-5000",
   },
   {
-    name: "ሽንኩርት",
+    name: "crops.onion",
     amount: 4500,
     season: 105,
     img: "/crops/onion.jpeg",
     water: "3500-5500",
   },
   {
-    name: "ቲማቲም",
+    name: "crops.tomato",
     amount: 7000,
     season: 105,
     img: "/crops/tomato.jpeg",
     water: "6000-8000",
   },
   {
-    name: "ጎመን",
+    name: "crops.cabbage",
     amount: 4250,
     season: 80,
     img: "/crops/cabbage.jpg",
