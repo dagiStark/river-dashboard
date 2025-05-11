@@ -203,3 +203,87 @@ export const sendToThingSpeak = async (encodedData) => {
     console.error("ThingSpeak request error:", error);
   }
 };
+
+// Generate last 12 months
+export const getLastTwelveMonths = () => {
+  const months = [];
+  const today = new Date();
+  for (let i = 11; i >= 0; i--) {
+    const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
+    months.push(
+      date.toLocaleString("default", { month: "short", year: "numeric" })
+    );
+  }
+  return months;
+};
+
+export const fetchThingSpeakData = async () => {
+  try {
+    const response = await fetch(
+      "https://api.thingspeak.com/channels/2820881/feeds.json?api_key=YF0V5ZPCZUEDAKGC&results=1000"
+    );
+    const result = await response.json();
+    console.log("Fetched data:", result);
+    return result.feeds || []; // ✅ Fix here
+  } catch (error) {
+    console.error("ThingSpeak fetch failed:", error);
+    return [];
+  }
+};
+
+export const fallbackData = {
+  labels: getLastTwelveMonths(),
+  riverFlow: new Array(12).fill(0),
+  rainDrop: new Array(12).fill(0),
+  riverLevel: new Array(12).fill(0),
+};
+
+export const processData = (rawData) => {
+  if (!rawData || rawData.length === 0) return fallbackData;
+
+  const twelveMonthsAgo = new Date();
+  twelveMonthsAgo.setMonth(twelveMonthsAgo.getMonth() - 12);
+
+  const monthlyData = {};
+  rawData.forEach((entry) => {
+    const date = new Date(entry.created_at);
+    if (
+      date >= twelveMonthsAgo &&
+      entry.field2 &&
+      entry.field3 &&
+      entry.field4
+    ) {
+      const label = date.toLocaleString("default", {
+        month: "short",
+        year: "numeric",
+      });
+      if (!monthlyData[label]) {
+        monthlyData[label] = { flow: [], drop: [], level: [] };
+      }
+      monthlyData[label].flow.push(parseFloat(entry.field3));
+      monthlyData[label].drop.push(parseFloat(entry.field4));
+      monthlyData[label].level.push(parseFloat(entry.field2));
+    }
+  });
+
+  const labels = getLastTwelveMonths();
+  const riverFlow = [];
+  const rainDrop = [];
+  const riverLevel = [];
+
+  labels.forEach((label) => {
+    const group = monthlyData[label];
+    if (group) {
+      const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+      riverFlow.push(avg(group.flow));
+      rainDrop.push(avg(group.drop));
+      riverLevel.push(avg(group.level));
+    } else {
+      riverFlow.push(0);
+      rainDrop.push(0);
+      riverLevel.push(0);
+    }
+  });
+
+  return { labels, riverFlow, rainDrop, riverLevel };
+};

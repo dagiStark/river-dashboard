@@ -9,7 +9,7 @@ function Sidebar() {
   return (
     <div className="w-[15%] bg-[#022213] pl-6 pt-3">
       <div>
-        <h1 className="text-3xl font-bold text-white">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white">ዳሽቦርድ</h1>
       </div>
       <div className="flex flex-col gap-5 mt-5">
         <h2 className="text-white/60">General</h2>

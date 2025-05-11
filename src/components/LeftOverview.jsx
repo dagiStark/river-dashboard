@@ -96,21 +96,21 @@ function LeftOverview() {
 
   const cards = [
     {
-      title: "River Flow",
+      title: "የወንዙ ፍሰት",
       value: data.riverFlow,
-      unit: "L/min",
+      unit: "ሊትር በ ደቂቃ",
       delta: deltas.riverFlow,
     },
     {
-      title: "River Level",
+      title: "የወንዙ ጥልቀት",
       value: data.riverLevel,
-      unit: "m",
+      unit: "ሜትር",
       delta: deltas.riverLevel,
     },
     {
-      title: "Rain Drop",
+      title: "የዝናብ መጠን",
       value: data.rainDrop,
-      unit: "mm",
+      unit: "ሚሊ ሜትር",
       delta: deltas.rainDrop,
     },
   ];
@@ -121,10 +121,9 @@ function LeftOverview() {
       <div>
         <div className="flex items-center justify-between gap-5 ">
           <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold">Overview</h1>
+            <h1 className="text-3xl font-bold">አጠቃላይ እይታ</h1>
             <p className="text-sm text-black/80">
-              An IoT system for monitoring, optimizing irrigation and ensuring
-              sustainable water management.
+              የአይኦቲ ስርዓት ለመከታተል፣ መስኖን ለማመቻቸት እና ዘላቂ የውሃ አያያዝን ለማረጋገጥ።
             </p>
           </div>
           <div>space holder</div>
@@ -156,7 +155,7 @@ function LeftOverview() {
                     {delta?.up ? <TrendingUp /> : <TrendingDown />}
                     {delta?.percent}%
                   </span>{" "}
-                  from last month
+                  ካለፈዉ ወር
                 </p>
               </div>
             </div>
@@ -168,9 +167,9 @@ function LeftOverview() {
       <div className="flex justify-between mt-5 gap-5">
         <div className="flex flex-col w-[40%] border-2 p-4 rounded-lg">
           <div className="flex justify-between items-center w-full">
-            <h1 className="font-semibold text-lg">Crop types</h1>
+            <h1 className="font-semibold text-lg">የ ሰብል አየነት</h1>
             <p>
-              Amount of water<span> (L/ha)</span>
+              የዉሃ መጠን<span> (L/ha)</span>
             </p>
           </div>
 
@@ -204,13 +203,13 @@ function LeftOverview() {
 
         <div className="flex flex-col w-[60%] border-2 p-4 rounded-lg gap-5">
           <div className="flex items-center justify-between pl-3 pr-3">
-            <h1 className="text-xl font-semibold">Calculation</h1>
+            <h1 className="text-xl font-semibold">ስሌቶች</h1>
             <div className="flex gap-2">
               <p className="text-black/60 flex gap-1">
                 <span className="text-[#022213] font-medium flex">
                   <Box />
                 </span>
-                make sure to add your land size
+                የመሬቶን ስፋት መጠን ማስገባትዎን ያረጋግጡ
               </p>
               {/* <p className="text-black/60 flex gap-1">
                 <span className="text-[#adde33] font-medium flex">
@@ -237,7 +236,7 @@ function LeftOverview() {
                   >
                     {/* Name */}
                     <div className="flex flex-col">
-                      <label className="text-sm font-medium mb-1">Name</label>
+                      <label className="text-sm font-medium mb-1">ስም</label>
                       <input
                         type="text"
                         value={row.name}
@@ -251,7 +250,7 @@ function LeftOverview() {
                     {/* Crop Select */}
                     <div className="flex flex-col">
                       <label className="text-sm font-medium mb-1">
-                        Crop Type
+                        የሰብል ዓይነት
                       </label>
                       <select
                         value={row.crop}
@@ -271,7 +270,7 @@ function LeftOverview() {
                     {/* Land Size */}
                     <div className="flex flex-col">
                       <label className="text-sm font-medium mb-1">
-                        Land Size (ha)
+                        የ እርሻ ስፋት (ha)
                       </label>
                       <input
                         type="number"
@@ -286,7 +285,7 @@ function LeftOverview() {
                     {/* Water Needed */}
                     <div className="flex flex-col justify-end">
                       <label className="text-sm font-medium mb-1">
-                        Water Needed
+                        የውሃ መጠን 
                       </label>
                       <p className="p-2 border rounded bg-gray-100 font-semibold">
                         {waterNeeded} L
@@ -314,7 +313,7 @@ function LeftOverview() {
                   onClick={handleCalculate}
                   className="px-4 py-2 bg-[#103524] text-white rounded hover:bg-[#aaab11]"
                 >
-                  Calculate
+                  አስላ
                 </button>
 
                 {distributionResult && (

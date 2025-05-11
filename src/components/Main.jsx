@@ -23,11 +23,11 @@ function Main() {
     <div className="w-full h-full flex flex-col pt-3 ml-3">
       <header>
         <div className="flex justify-between items-center mr-10">
-          <h1 className="text-3xl font-bold text-[#adde33]">Template</h1>
+          <h1 className="text-3xl font-bold text-[#adde33]">እንኳን ደህና መጡ</h1>
           <div className="flex items-center gap-10">
             <div className="flex items-center gap-2">
               <Search />
-              <Input placeholder="Search..." />
+              <Input placeholder="ፈልግ..." />
             </div>
             <div>
               <DateRangeDisplay />

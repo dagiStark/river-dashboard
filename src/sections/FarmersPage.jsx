@@ -26,7 +26,8 @@ const FarmersPage = () => {
             key={index}
             className="bg-white shadow-md rounded-lg p-4 border border-[#adde33]"
           >
-            <h2 className="text-lg font-bold text-[#022213] mb-2">
+            <h2 className="text-lg font-bold text-[#022213] mb-2 flex items-center gap-2">
+              <img src="./farmer.png" alt="farmer picture" className="w-10 h-10 text-center rounded-full border-[#adde33] border-2"/>
               {farmer.name || `Farmer ${index + 1}`}
             </h2>
             <ul className="text-sm text-gray-700 space-y-1">

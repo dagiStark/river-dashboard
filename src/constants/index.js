@@ -2,17 +2,17 @@ import { Logs, ChartArea, LandPlot } from "lucide-react";
 
 export const navItems = [
   {
-    name: "Overview",
+    name: "አጠቃላይ እይታ",
     path: "/overview",
     icon: Logs,
   },
   {
-    name: "Charts",
+    name: "ግራፍ",
     path: "/charts",
     icon: ChartArea,
   },
   {
-    name: "Farmers",
+    name: "ተጠቃሚዎች",
     path: "/farmers",
     icon: LandPlot,
   },
@@ -64,105 +64,98 @@ export const usStates = [
 
 export const crops = [
   {
-    name: "Teff",
+    name: "ጤፍ",
     amount: 3500,
     season: 75,
     img: "/crops/teff.jpeg",
     water: "3000-4000",
   },
   {
-    name: "Maize",
+    name: "በቆሎ",
     amount: 6500,
     season: 105,
     img: "/crops/maize.jpeg",
     water: "5000-8000",
   },
   {
-    name: "Sorghum",
+    name: "ማሽላ",
     amount: 5500,
     season: 105,
     img: "/crops/sorghum.jpeg",
     water: "4500-6500",
   },
   {
-    name: "Wheat",
+    name: "ስንዴ",
     amount: 5750,
     season: 135,
     img: "/crops/wheat.jpeg",
     water: "4500-7000",
   },
   {
-    name: "Barley",
+    name: "ገብስ",
     amount: 5000,
     season: 120,
     img: "/crops/barley.jpeg",
     water: "4000-6000",
   },
   {
-    name: "Millet",
-    amount: 3500,
-    season: 75,
-    img: "/crops/millet.jpeg",
-    water: "2500-4500",
-  },
-  {
-    name: "Oats",
+    name: "አጃ",
     amount: 6000,
     season: 110,
     img: "/crops/oats.jpeg",
     water: "5000-7000",
   },
   {
-    name: "Rice",
+    name: "ሩዝ",
     amount: 12500,
     season: 135,
     img: "/crops/rice.jpeg",
     water: "10000-15000",
   },
   {
-    name: "Potato",
+    name: "ድንች",
     amount: 6000,
     season: 105,
     img: "/crops/potato.jpeg",
     water: "5000-7000",
   },
   {
-    name: "Sweet Potato",
+    name: "ስኳር ድንች",
     amount: 5000,
     season: 135,
     img: "/crops/sweet_potato.jpeg",
     water: "4000-6000",
   },
   {
-    name: "Yam",
+    name: "ያም",
     amount: 7000,
     season: 210,
     img: "/crops/yam.jpeg",
     water: "6000-8000",
   },
   {
-    name: "Cassava",
+    name: "ካሳቫ ",
     amount: 4000,
     season: 300,
     img: "/crops/cassava.jpeg",
     water: "3000-5000",
   },
   {
-    name: "Onion",
+    name: "ሽንኩርት",
     amount: 4500,
     season: 105,
     img: "/crops/onion.jpeg",
     water: "3500-5500",
   },
   {
-    name: "Tomato",
+    name: "ቲማቲም",
     amount: 7000,
     season: 105,
     img: "/crops/tomato.jpeg",
     water: "6000-8000",
   },
   {
-    name: "Cabbage",
+    name: "ጎመን",
     amount: 4250,
     season: 80,
     img: "/crops/cabbage.jpg",
@@ -272,4 +265,10 @@ export const generateRelatedColors = (count) => {
   }
 
   return colors;
+};
+
+export const COLORS = {
+  riverFlow: "#2C7A7B", // Teal
+  rainDrop: "#68D391", // Green
+  riverLevel: "#805AD5", // Purple
 };
