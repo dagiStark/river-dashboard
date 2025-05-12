@@ -129,7 +129,7 @@ function RightOverview() {
           <CircularChart />
         </div>
         <div>
-          <img src="./river.png" alt="" className="w-80 max-h-96"/>
+          <img src="./river.png" alt="" className="w-80 max-h-96 rounded-t-md"/>
         </div>
       </div>
     </div>

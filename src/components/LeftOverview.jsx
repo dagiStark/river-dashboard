@@ -123,10 +123,8 @@ function LeftOverview() {
       <div>
         <div className="flex items-center justify-between gap-5 ">
           <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold">{t("nav.overview")}</h1>
-            <p className="text-sm text-black/80">
-             {t("welcome_msg")}
-            </p>
+            <h1 className="text-2xl font-bold">{t("nav.overview")}</h1>
+            <p className="text-sm text-black/80">{t("welcome_msg")}</p>
           </div>
           <div>space holder</div>
         </div>
