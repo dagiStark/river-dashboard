@@ -128,6 +128,9 @@ function RightOverview() {
         <div className="mt-2">
           <CircularChart />
         </div>
+        <div>
+          <img src="./river.png" alt="" className="w-80 max-h-96"/>
+        </div>
       </div>
     </div>
   );
