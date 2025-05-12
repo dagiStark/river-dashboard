@@ -16,6 +16,7 @@
     "rice": "Rice",
     "potato": "Potato",
     "sweet_potato": "Sweet Potato",
+    "sweet potato": "Sweet Potato",
     "yam": "Yam",
     "cassava": "Cassava",
     "onion": "Onion",
@@ -42,5 +43,10 @@
     "mm": "mm"
   },
   "analysis": "from last month",
-  "right_dist":"Water Distribution"
+  "right_dist":"Water Distribution",
+  "farmers_overview":"Farmers Overview",
+  "farmers_amount":"Water Needed",
+  "farmers_water":"Liter",
+  "farmers_allocated":"Allocated Water",
+  "farmers_suggestion":"Suggestion"
 }

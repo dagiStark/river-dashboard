@@ -12,6 +12,7 @@ import { Line } from "react-chartjs-2";
 import { useEffect, useState } from "react";
 import { fetchThingSpeakData, processData, fallbackData } from "../utils";
 import { COLORS } from "../constants";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   LineElement,
@@ -89,6 +90,7 @@ export default function EnvironmentalCharts() {
   const [riverFlowData, setRiverFlowData] = useState(fallbackData.riverFlow);
   const [rainDropData, setRainDropData] = useState(fallbackData.rainDrop);
   const [riverLevelData, setRiverLevelData] = useState(fallbackData.riverLevel);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const loadData = async () => {
@@ -135,7 +137,7 @@ export default function EnvironmentalCharts() {
             data={createChartData(
               labels,
               riverFlowData,
-              "River Flow",
+              t("cards.riverFlowTitle"),
               COLORS.riverFlow
             )}
             options={commonOptions}
@@ -149,7 +151,7 @@ export default function EnvironmentalCharts() {
             data={createChartData(
               labels,
               rainDropData,
-              "Rain Drop",
+              t("cards.rainDropTitle"),
               COLORS.rainDrop
             )}
             options={commonOptions}
@@ -163,7 +165,7 @@ export default function EnvironmentalCharts() {
             data={createChartData(
               labels,
               riverLevelData,
-              "River Level",
+              t("cards.riverLevelTitle"),
               COLORS.riverLevel
             )}
             options={commonOptions}
@@ -178,7 +180,7 @@ export default function EnvironmentalCharts() {
               labels,
               datasets: [
                 {
-                  label: "River Flow",
+                  label: t("cards.riverFlowTitle"),
                   data: riverFlowData,
                   borderColor: COLORS.riverFlow,
                   backgroundColor: `${COLORS.riverFlow}33`,
@@ -188,7 +190,7 @@ export default function EnvironmentalCharts() {
                   pointHoverRadius: 5,
                 },
                 {
-                  label: "Rain Drop",
+                  label: t("cards.rainDropTitle"),
                   data: rainDropData,
                   borderColor: COLORS.rainDrop,
                   backgroundColor: `${COLORS.rainDrop}33`,
@@ -198,7 +200,7 @@ export default function EnvironmentalCharts() {
                   pointHoverRadius: 5,
                 },
                 {
-                  label: "River Level",
+                  label: t("cards.riverLevelTitle"),
                   data: riverLevelData,
                   borderColor: COLORS.riverLevel,
                   backgroundColor: `${COLORS.riverLevel}33`,

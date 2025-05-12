@@ -16,6 +16,7 @@
     "rice": "ሩዝ",
     "potato": "ድንች",
     "sweet_potato": "ስኳር ድንች",
+    "sweet potato": "ስኳር ድንች",
     "yam": "ያም",
     "cassava": "ካሳቫ",
     "onion": "ሽንኩርት",
@@ -42,5 +43,10 @@
     "mm": "ሚሊ ሜትር"
   },
   "analysis": " ካለፈዉ ወር",
-  "right_dist": "የዉሃ አከፋፈል"
+  "right_dist": "የዉሃ አከፋፈል",
+  "farmers_overview": "የተጠቃሚዎች አጠቃላይ እይታ",
+  "farmers_amount": "የሚያስፈልግ ውሃ መጠን",
+  "farmers_water": "ሊትር",
+  "farmers_allocated": "የተመደበ ውሃ",
+  "farmers_suggestion": "ምክር"
 }
