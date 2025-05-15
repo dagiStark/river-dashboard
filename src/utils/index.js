@@ -287,3 +287,10 @@ export const processData = (rawData) => {
 
   return { labels, riverFlow, rainDrop, riverLevel };
 };
+
+export const capitalizeName = (name) => {
+  return name
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+};

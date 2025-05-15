@@ -38,12 +38,9 @@ function Main() {
     <div className="w-full h-full flex flex-col">
       <header className="overflow-hidden shadow-xl shadow-gray-300">
         <div
-          className="flex justify-between items-center bg-cover bg-center bg-no-repeat py-2 px-4"
-          style={{ backgroundImage: "url('/bg.png')" }}
+          className="flex justify-end items-center bg-cover bg-center bg-no-repeat py-2 px-4"
+          style={{ backgroundImage: "url('/bg4.png')" }}
         >
-          <h1 className="text-4xl font-extrabold text-black/80">
-            {t("welcome")}
-          </h1>
           <div className="flex items-center gap-10">
             <div className="flex items-center gap-2 text-white">
               <Search />

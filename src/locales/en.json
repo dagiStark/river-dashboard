@@ -33,6 +33,8 @@
   "welcome": "Welcome",
   "welcome_msg":"An IOT based water distribution system for farmers",
   "search":"Search",
+  "hectare":"hectare",
+  "suggestion":"Suggestion",
   "nav_list": "Navigate",
   "cards": {
     "riverFlowTitle": "River Flow",

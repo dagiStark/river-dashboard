@@ -1,4 +1,5 @@
 import * as Dialog from "@radix-ui/react-dialog";
+import { useTranslation } from "react-i18next";
 
 export default function WaterDistributionDialog({
   open,
@@ -6,6 +7,7 @@ export default function WaterDistributionDialog({
   results,
   totalWater,
 }) {
+  const { t } = useTranslation();
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
@@ -26,7 +28,7 @@ export default function WaterDistributionDialog({
                   <strong>Name:</strong> {res.name}
                 </p>
                 <p>
-                  <strong>Crop:</strong> {res.crop}
+                  <strong>Crop:</strong> {t(`${res.crop}`)}
                 </p>
                 <p>
                   <strong>Land Size:</strong> {res.landSize} ha
