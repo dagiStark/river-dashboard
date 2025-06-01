@@ -57,6 +57,9 @@ function LeftOverview() {
   const addRow = () => {
     setRows([...rows, { name: "", crop: crops[0].name, landSize: "" }]);
   };
+  const handleDelete = (indexToRemove) => {
+    setRows(rows.filter((_, index) => index !== indexToRemove));
+  };
 
   const handleCalculate = async () => {
     const result = distributeWater(rows, crops, data.riverFlow || 0);
@@ -124,12 +127,13 @@ function LeftOverview() {
         <div className="flex items-center justify-between gap-5 ">
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">{t("nav.overview")}</h1>
+          </div>
+          <div>
             <p className="text-sm text-black/80">{t("welcome_msg")}</p>
           </div>
-          <div>space holder</div>
         </div>
 
-        <div className="flex items-center justify-between gap-5 mt-5">
+        <div className="flex items-center justify-between gap-5 mt-8">
           {cards.map(({ title, value, unit, delta }) => (
             <div
               key={title}
@@ -143,7 +147,7 @@ function LeftOverview() {
               </div>
               <div className="relative flex items-center justify-between w-full">
                 <p className="font-semibold text-3xl pl-3">
-                  {value ? value.toFixed(1) : "0"}{" "}
+                  {value ? value.toFixed(2) : "0"}{" "}
                   <span className="text-lg align-super">
                     {t(`cards.${unit}`)}
                   </span>
@@ -293,7 +297,7 @@ function LeftOverview() {
                     </div>
                     <button
                       className="absolute bottom-2 right-2"
-                      // onClick={() => handleDelete(index)}
+                      onClick={() => handleDelete(index)}
                     >
                       <Trash2 className="text-red-600 w-4 h-4" />
                     </button>
