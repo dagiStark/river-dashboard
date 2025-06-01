@@ -148,7 +148,7 @@ function LeftOverview() {
               <div className="relative flex items-center justify-between w-full">
                 <p className="font-semibold text-3xl pl-3">
                   {value ? value.toFixed(2) : "0"}{" "}
-                  <span className="text-lg align-super">
+                  <span className="text-lg align-bottom">
                     {t(`cards.${unit}`)}
                   </span>
                 </p>
@@ -296,7 +296,7 @@ function LeftOverview() {
                       </p>
                     </div>
                     <button
-                      className="absolute bottom-2 right-2"
+                      className="absolute -bottom-px -right-px"
                       onClick={() => handleDelete(index)}
                     >
                       <Trash2 className="text-red-600 w-4 h-4" />
