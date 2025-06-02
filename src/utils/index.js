@@ -243,10 +243,6 @@ export const fallbackData = {
 
 export const processData = (rawData) => {
   if (!rawData || rawData.length === 0) return fallbackData;
-  console.log(
-    "Fetched date range:",
-    rawData.map((entry) => entry.created_at)
-  );
 
   // 1. Define the date range (LAST 12 MONTHS, INCLUDING CURRENT MONTH)
   const now = new Date();
@@ -300,13 +296,6 @@ export const processData = (rawData) => {
     result.rainDrop.push(avg(group?.drop));
     result.riverLevel.push(avg(group?.level));
   });
-
-  // 4. DEBUG: Log the grouped data to verify
-  const olderData = rawData.filter((entry) => {
-    const date = new Date(entry.created_at);
-    return date < new Date("2025-04-01T00:00:00Z"); // Data before April 2025
-  });
-  console.log("Data before April 2025:", olderData);
   return result;
 };
 

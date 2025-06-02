@@ -24,7 +24,8 @@ import {
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip);
 
 const getPercentChange = (latest, prev) => {
-  if (!prev || prev === 0) return { percent: 0, up: true };
+  console.log("Latest: ", latest, "Prev: ", prev);
+  if (!prev || prev === 0) return { percent: latest, up: true };
   const change = ((latest - prev) / prev) * 100;
   return {
     percent: change.toFixed(1),
