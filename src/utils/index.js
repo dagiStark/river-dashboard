@@ -1,12 +1,6 @@
 // utils/fetchAndCacheAveragedData.js
 
 export const fetchAndCacheAveragedData = async () => {
-  const cacheKey = "monthlyAverages";
-  const cached = localStorage.getItem(cacheKey);
-  if (cached) {
-    return JSON.parse(cached);
-  }
-
   const CHANNEL_ID = "2820881";
   const MAX_RESULTS = 8000;
 
@@ -59,7 +53,6 @@ export const fetchAndCacheAveragedData = async () => {
     }
   });
 
-  localStorage.setItem(cacheKey, JSON.stringify(result));
   return result;
 };
 
@@ -219,12 +212,22 @@ export const getLastTwelveMonths = () => {
 
 export const fetchThingSpeakData = async () => {
   try {
+    // Calculate date range (last 12 months, including current month)
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setMonth(endDate.getMonth() - 11); // 12 months total
+    startDate.setDate(1); // Start from 1st day of the earliest month
+
     const response = await fetch(
-      "https://api.thingspeak.com/channels/2820881/feeds.json?api_key=YF0V5ZPCZUEDAKGC&results=1000"
+      `https://api.thingspeak.com/channels/2820881/feeds.json?api_key=YF0V5ZPCZUEDAKGC` +
+        `&start=${startDate.toISOString()}` +
+        `&end=${endDate.toISOString()}`
     );
+
     const result = await response.json();
     console.log("Fetched data:", result);
-    return result.feeds || []; // ✅ Fix here
+
+    return result.feeds || [];
   } catch (error) {
     console.error("ThingSpeak fetch failed:", error);
     return [];
@@ -240,52 +243,71 @@ export const fallbackData = {
 
 export const processData = (rawData) => {
   if (!rawData || rawData.length === 0) return fallbackData;
+  console.log(
+    "Fetched date range:",
+    rawData.map((entry) => entry.created_at)
+  );
 
-  const twelveMonthsAgo = new Date();
-  twelveMonthsAgo.setMonth(twelveMonthsAgo.getMonth() - 12);
+  // 1. Define the date range (LAST 12 MONTHS, INCLUDING CURRENT MONTH)
+  const now = new Date();
+  const twelveMonthsAgo = new Date(now);
+  twelveMonthsAgo.setMonth(now.getMonth() - 11); // 12 months total (current + 11 prior)
+  twelveMonthsAgo.setDate(1);
 
+  // 2. Group data by MONTH-YEAR (force UTC to avoid timezone issues)
   const monthlyData = {};
   rawData.forEach((entry) => {
+    if (!entry.created_at) return; // Skip if no timestamp
+
     const date = new Date(entry.created_at);
-    if (
-      date >= twelveMonthsAgo &&
-      entry.field2 &&
-      entry.field3 &&
-      entry.field4
-    ) {
-      const label = date.toLocaleString("default", {
-        month: "short",
-        year: "numeric",
-      });
-      if (!monthlyData[label]) {
-        monthlyData[label] = { flow: [], drop: [], level: [] };
-      }
-      monthlyData[label].flow.push(parseFloat(entry.field3));
-      monthlyData[label].drop.push(parseFloat(entry.field4));
-      monthlyData[label].level.push(parseFloat(entry.field2));
+    if (date < twelveMonthsAgo) return; // Skip if outside range
+
+    // Generate label in UTC (e.g., "Jun 2025")
+    const label = new Date(
+      Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1)
+    ).toLocaleString("default", {
+      month: "short",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+
+    // Initialize if needed
+    if (!monthlyData[label]) {
+      monthlyData[label] = { flow: [], drop: [], level: [] };
     }
+
+    // Add data (skip if fields are missing)
+    if (entry.field2) monthlyData[label].level.push(parseFloat(entry.field2));
+    if (entry.field3) monthlyData[label].flow.push(parseFloat(entry.field3));
+    if (entry.field4) monthlyData[label].drop.push(parseFloat(entry.field4));
   });
 
+  // 3. Map grouped data to the last 12 months' labels
   const labels = getLastTwelveMonths();
-  const riverFlow = [];
-  const rainDrop = [];
-  const riverLevel = [];
+  const result = {
+    labels,
+    riverFlow: [],
+    rainDrop: [],
+    riverLevel: [],
+  };
 
   labels.forEach((label) => {
     const group = monthlyData[label];
-    if (group) {
-      const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
-      riverFlow.push(avg(group.flow));
-      rainDrop.push(avg(group.drop));
-      riverLevel.push(avg(group.level));
-    } else {
-      riverFlow.push(0);
-      rainDrop.push(0);
-      riverLevel.push(0);
-    }
+    // Calculate averages (or null if no data)
+    const avg = (arr) =>
+      arr && arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+    result.riverFlow.push(avg(group?.flow));
+    result.rainDrop.push(avg(group?.drop));
+    result.riverLevel.push(avg(group?.level));
   });
 
-  return { labels, riverFlow, rainDrop, riverLevel };
+  // 4. DEBUG: Log the grouped data to verify
+  const olderData = rawData.filter((entry) => {
+    const date = new Date(entry.created_at);
+    return date < new Date("2025-04-01T00:00:00Z"); // Data before April 2025
+  });
+  console.log("Data before April 2025:", olderData);
+  return result;
 };
 
 export const capitalizeName = (name) => {

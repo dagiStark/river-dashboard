@@ -61,9 +61,11 @@ const commonOptions = {
       ticks: {
         color: "#4A5568",
         font: { size: 11 },
+        autoSkip: false,
       },
     },
   },
+  spanGaps: false,
 };
 
 const createChartData = (labels, data, label, color, fill = false) => ({
