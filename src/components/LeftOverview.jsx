@@ -25,10 +25,17 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip);
 
 const getPercentChange = (latest, prev) => {
   console.log("Latest: ", latest, "Prev: ", prev);
-  if (!prev || prev === 0) return { percent: latest, up: true };
-  const change = ((latest - prev) / prev) * 100;
+
+  const safeLatest = typeof latest === "number" ? latest : 0;
+  const safePrev = typeof prev === "number" ? prev : 0;
+
+  if (!safePrev || safePrev === 0) {
+    return { percent: Number(safeLatest.toFixed(2)), up: true };
+  }
+
+  const change = ((safeLatest - safePrev) / safePrev) * 100;
   return {
-    percent: change.toFixed(1),
+    percent: Number(change.toFixed(1)),
     up: change >= 0,
   };
 };
